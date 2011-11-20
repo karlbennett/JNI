@@ -105,43 +105,35 @@ public class JniUtils {
 
         String libJarPath = jarDir + libName; // Build the path to the native library file on the class path.
 
-        // Streams that will be used to extract the native library file.
-        InputStream in = null;
-        OutputStream out = null;
-
         try {
 
             // Get the input stream for the native library file.
-            in = Thread.currentThread().getContextClassLoader().getResourceAsStream(libJarPath);
+            InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(libJarPath);
 
             File fsFile = new File(fsLibraryDir, libName); // Create the local file system native library file.
 
-            // Then get the output stream for the local file system native library file.
-            out = new FileOutputStream(fsFile);
+            OutputStream out = null; // Stream variables need to be outside the try so they can be accessed within the finally.
 
-            // Now that we are sure that we can extract the native library file write it to the local filesystem directory.
-            writeFile(in, out);
+            try {
+                // Then get the output stream for the local file system native library file.
+                out = new FileOutputStream(fsFile);
 
-            // Finally load the local file system native library file.
-            System.load(fsFile.getAbsolutePath());
+                // Now that we are sure that we can extract the native library file write it to the local filesystem directory.
+                writeFile(in, out);
+
+                // Finally load the local file system native library file.
+                System.load(fsFile.getAbsolutePath());
+
+            } finally {
+
+                if (in != null) in.close();
+                if (out != null) out.close();
+            }
 
         } catch (IOException e) {
 
             // If anything goes wrong here throw the resultant exception as our custom IO runtime exception.
             throw new IORuntimeException(e);
-
-        } finally {
-
-            try {
-
-                if (in != null) in.close();
-                if (out != null) out.close();
-
-            } catch (IOException e) {
-
-                // Shouldn't really throw any exceptions inside a finally.
-                System.err.println("Failed to close in/out streams. Error: " + e.getMessage());
-            }
         }
     }
 
