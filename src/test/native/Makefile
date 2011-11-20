@@ -8,9 +8,9 @@ TEST_CLASSES_DIR = $(TARGET)test-classes/
 
 JNI_DIR = $(TEST_CLASSES_DIR)jni/
 
-LIB_DIR = $(TARGET)lib/
+LIB_DIR = $(TEST_CLASSES_DIR)lib/
 
-OTHER_LIB_DIR = $(TARGET)other-lib/
+OTHER_LIB_DIR = $(TEST_CLASSES_DIR)other-lib/
 
 
 #################
