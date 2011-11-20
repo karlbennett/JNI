@@ -6,7 +6,7 @@ TARGET = ../../../target/
 
 TEST_CLASSES_DIR = $(TARGET)test-classes/
 
-JNI_DIR = $(TEST_CLASSES_DIR)jni/
+JNI_DIR = $(TARGET)jni/
 
 LIB_DIR = $(TEST_CLASSES_DIR)lib/
 
@@ -40,10 +40,6 @@ SRC_FILE_ONE = JniTestClassOne.cpp
 
 SRC_FILE_TWO = JniTestClassTwo.cpp
 
-MAKE_OTHER_LIB_DIR_CMD = mkdir -p $(OTHER_LIB_DIR)
-
-MAKE_LIB_DIR_CMD = mkdir -p $(LIB_DIR)
-
 COMPILE_NATIVE_ONE_CMD = $(CCC) -shared $(INCLUDES) $(SRC_FILE_ONE) -o $(OTHER_LIB_DIR)lib$(SRC_FILE_ONE:.cpp=.so)
 
 COMPILE_NATIVE_TWO_CMD = $(CCC) -shared $(INCLUDES) $(SRC_FILE_TWO) -o $(LIB_DIR)lib$(SRC_FILE_TWO:.cpp=.so)
@@ -51,9 +47,7 @@ COMPILE_NATIVE_TWO_CMD = $(CCC) -shared $(INCLUDES) $(SRC_FILE_TWO) -o $(LIB_DIR
 
 all :
 	$(JAVAH_CMD)
-	$(MAKE_OTHER_LIB_DIR_CMD)
 	$(COMPILE_NATIVE_ONE_CMD)
-	$(MAKE_LIB_DIR_CMD)
 	$(COMPILE_NATIVE_TWO_CMD)
 
 clean :
