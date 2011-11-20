@@ -45,7 +45,7 @@ JAVAH_CMD = $(JAVAH) -classpath $(TEST_CLASSES_DIR) -d $(JNI_DIR) $(TEST_JAVA_CL
 # The C++ compiler that will be used.
 CCC = g++
 
-# The required libraries for the native code.
+# The required header files for the native code.
 INCLUDES = -I$(JNI_DIR) -I$(JAVA_HOME)include/ -I$(JAVA_HOME)include/linux/
 
 # The first C++ test source file.
