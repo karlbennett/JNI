@@ -17,9 +17,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <jni.java.home>${env.JAVA_HOME}</jni.java.home>
+
         <native.dir>src/test/native/</native.dir>
+
         <lib.dir>${project.build.directory}/test-classes/lib/</lib.dir>
+
         <other.lib.dir>${project.build.directory}/test-classes/other-lib/</other.lib.dir>
     </properties>
 
