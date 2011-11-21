@@ -73,7 +73,7 @@
                         </goals>
                         <configuration>
                             <tasks>
-                                <!--We make the native binary output directories with ANT so that the method of creation is -->
+                                <!--We create the native binary output directories with ANT so that the method of creation is -->
                                 <!--platform independent.-->
                                 <delete dir="${lib.dir}"/>
                                 <mkdir dir="${lib.dir}"/>
