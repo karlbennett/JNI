@@ -18,18 +18,23 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!--Capture the value of the JAVA_HOME environment variable so that we can check for it's existence below.-->
         <jni.java.home>${env.JAVA_HOME}</jni.java.home>
 
+        <!--This is the directory where all the native source code is kept.-->
         <native.dir>src/test/native/</native.dir>
 
+        <!--This is the directory where the compiled native object files will be placed.-->
         <lib.dir>${project.build.directory}/test-classes/lib/</lib.dir>
 
+        <!--This is another directory where the compiled native object files will be placed. It has been created for testing.-->
         <other.lib.dir>${project.build.directory}/test-classes/other-lib/</other.lib.dir>
     </properties>
 
     <build>
         <plugins>
             <plugin>
+                <!--Make sure we compile all the Java source as 1.6.-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -41,6 +46,8 @@
             </plugin>
 
             <plugin>
+                <!--Make sure that the JAVA_HOME environment variable has been set.-->
+                <!--This is because we rely on it for some of the directory paths in the Makefile.-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <executions>
@@ -63,6 +70,7 @@
             </plugin>
 
             <plugin>
+                <!--Generate the JNI headers and compile the native code.-->
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
