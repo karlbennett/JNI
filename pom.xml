@@ -25,7 +25,7 @@
         <native.dir>src/test/native/</native.dir>
 
         <!--This is the directory where the compiled native object files will be placed.-->
-        <lib.dir>${project.build.directory}/test-classes/lib/</lib.dir>
+        <lib.dir>${project.build.testOutputDirectory}/lib/</lib.dir>
 
         <!--This is another directory where the compiled native object files will be placed. It has been created for testing.-->
         <other.lib.dir>${project.build.directory}/test-classes/other-lib/</other.lib.dir>
