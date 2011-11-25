@@ -1,6 +1,6 @@
-##################
+#########################
 # Setup the directories #
-##################
+#########################
 
 # The target directory of the maven build, all the compiled code will be placed under this directory.
 TARGET = ../../../target/
@@ -18,9 +18,9 @@ LIB_DIR = $(TEST_CLASSES_DIR)lib/
 OTHER_LIB_DIR = $(TEST_CLASSES_DIR)other-lib/
 
 
-#################
+#######################
 # Setup JNI compiling #
-#################
+#######################
 
 # The javah binary.
 JAVAH = $(JAVA_HOME)bin/javah
@@ -38,9 +38,9 @@ TEST_JAVA_CLASS_TWO = $(TEST_JAVA_PACKAGE).JniTestClassTwo
 JAVAH_CMD = $(JAVAH) -classpath $(TEST_CLASSES_DIR) -d $(JNI_DIR) $(TEST_JAVA_CLASS_ONE) $(TEST_JAVA_CLASS_TWO)
 
 
-#####################
+##########################
 # Setup native compiling #
-#####################
+##########################
 
 # The C++ compiler that will be used.
 CCC = g++
