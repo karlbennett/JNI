@@ -70,7 +70,7 @@ public class JniUtils {
      * The native library is first extracting it to the provided directory on the local file system then loaded.
      *
      * @param jarDir  - the directory within the JAR where the native library files can be found.
-     * @param fsDir   - the directory within the filesystem where the native library files will be extracted to
+     * @param fsDir   - the directory within the filesystem where the native library files will be extracted to.
      * @param libName - the full or simple name of a native library.
      */
     public static void loadNativeLibrary(String jarDir, String fsDir, String libName) {
