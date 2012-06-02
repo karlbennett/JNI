@@ -85,8 +85,7 @@ public class JniUtils {
                 "org.karlbennett.jni.JniUtils.loadNativeLibrary(jarDir, fsDir, libName) - Unable to find library " +
                         libName + " on classpath");
 
-        // Make sure the fsDir has a trailing slash.
-        fsDir = checkDirSlash(fsDir);
+        fsDir = checkDirSlash(fsDir); // Make sure the fsDir has a trailing slash.
 
         // Make sure that the native library extraction directory exists, if it doesn't try and create it.
         File fsLibraryDir = new File(fsDir);
