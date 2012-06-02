@@ -65,7 +65,7 @@ public class JniUtils {
      * This name could be the full name of the library e.g. <code>"libnative.so"</code>,<code> "libnative.dll"</code>,
      * <code>"libnative.dylib"</code>.
      * <p/>
-     * Or the simple name minus the library prefix ans suffix e.g <code>"native"</code>.
+     * Or the simple name minus the library prefix and suffix e.g <code>"native"</code>.
      * <p/>
      * The native library is first extracting it to the provided directory on the local file system then loaded.
      *
