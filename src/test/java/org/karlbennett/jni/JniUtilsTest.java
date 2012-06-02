@@ -78,7 +78,7 @@ public class JniUtilsTest {
 
         final String TEST_DIR = "test dir";
 
-        // Record the old value so that this test doesn't effect subsequent tests.
+        // Record the old value so that this test doesn't affect subsequent tests.
         final String OLD_VALUE = System.getProperty(NATIVE_LIBRARY_JAR_DIR_PROPERTY);
 
         System.setProperty(NATIVE_LIBRARY_JAR_DIR_PROPERTY, TEST_DIR);
